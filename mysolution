@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+	echo "ERROR! Could not find the csv file."
+	echo "Usage: ./mysolution input.csv"
+else
+	python3 app/Console/BestRouteCommand.py $1
+fi
