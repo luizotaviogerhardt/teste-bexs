@@ -58,6 +58,10 @@ After installing Docker you can run the app with
 
 ```./service up```
 
+To close the app
+
+```./service down```
+
 ## Endpoints
 
 ### Get all available routes
