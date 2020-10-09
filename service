@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+	echo "Usage: ./service up to run the app."
+	echo "Usage: ./service down to stop the app."
+elif [ "$1" = "up" ]
+then
+  docker build . -t routes-api
+  docker run -d --name=routes -p 5001:5000 routes-api
+elif [ "$1" = "down" ]
+then
+  docker kill routes &> /dev/null
+  docker rm routes &> /dev/null
+else
+  echo "ERROR! Valid args are 'up' or 'down'"
+fi

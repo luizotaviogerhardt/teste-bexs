@@ -11,6 +11,9 @@ except:
 
 while(True):
     route = input('Please enter the route in the format ORIGIN-DESTINATION : ')
+    if not route:
+        print("Exiting...")
+        exit(0)
     [origin, destination] = route.split('-')
 
     [value, path] = ShortestPathService.dijkstraPath(graph, origin, destination)

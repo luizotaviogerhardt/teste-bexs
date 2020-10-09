@@ -32,7 +32,6 @@ def dijkstra(graph, origin):
 
     #print(distance)
 
-
 def dijkstraPath(graph, origin, destination):
 
     control = {}
@@ -41,6 +40,9 @@ def dijkstraPath(graph, origin, destination):
     notVisited = []
     actual = origin
     actualNode[actual] = 0
+
+    if not validOriginAndDestination(graph, origin, destination):
+        raise ValueError('Invalid Origin or Destination!')
 
     for vertex in graph.keys():
         notVisited.append(vertex)  # inclui os vertexs nos não visitados
@@ -67,6 +69,8 @@ def dijkstraPath(graph, origin, destination):
 
     return (distance[destination][0], printPath(distance, origin, destination))
 
+def validOriginAndDestination(graph, origin, destination):
+    return origin in graph.keys() and destination in graph.keys()
 
 def printPath(distances, origin, destination):
     if destination != origin:
